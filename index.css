@@ -9,69 +9,70 @@ body {
   margin: 1rem;
 }
 
+/* =================
+    Layout
+   ================= */
+
+/*
+Challenge 1:
+    1. Assign each card a grid-area name.
+*/
+
+.technology {
+  grid-area: tech;
+}
+
+.environment {
+  grid-area: envir;
+}
+
+.nasa {
+  grid-area: nasa;
+}
+
+.physics {
+  grid-area: phys;
+}
+
+.health {
+  grid-area: health;
+}
+/*
+Challenge 2:
+    1. Use grid-template-areas to define 
+       the layout at each size.
+       (Keep the existing column templates.) 
+*/
+
 main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
+  grid-template-areas:
+    "tech"
+    "envir"
+    "nasa"
+    "phys"
+    "health";
 }
 
 @media (min-width: 500px) {
-  /*
-  Challenge:
-      1. Make our layout look like the screenshot. 
-      (📝 Try to write the least CSS possible.)  
-  */
   main {
     grid-template-columns: 1fr 1fr;
-  }
-  .technology {
-    grid-column: span 2;
-  }
-
-  .environment {
-    grid-row: 2;
-  }
-
-  .nasa {
-    grid-row: span 2;
-  }
-
-  .health {
-    grid-column: span 2;
+    grid-template-areas:
+      "tech tech"
+      "envir nasa"
+      "phys nasa"
+      "health health";
   }
 }
 
 @media (min-width: 870px) {
-  /*
-  Challenge:
-      1. Create a 12 column layout. 
-         (Don’t write 1fr 12 times 😡)
-      2. Place the items using grid lines.
-         (📝 Try to write as little CSS as possible.)  
-  */
   main {
     grid-template-columns: repeat(12, 1fr);
-  }
-
-  .technology {
-    grid-column: 1 / 7;
-  }
-
-  .environment {
-    grid-column: 7 / 10;
-    grid-row: 1;
-  }
-
-  .nasa {
-    grid-column: 10 / -1;
-  }
-
-  .physics {
-    grid-column: 1 / 4;
-  }
-
-  .health {
-    grid-column: 4 / 10;
+    grid-template-areas:
+      "tech tech tech tech tech tech envir envir envir nasa nasa nasa"
+      "phys phys phys health health health health health health nasa nasa nasa";
   }
 }
 
