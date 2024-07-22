@@ -4,47 +4,50 @@ body {
   padding: 0;
   font-family: "Manrope", sans-serif;
 }
+/* =================
+    Site Layout 
+   ================= */
+/* 
+Challenge:
+    1. Get the header, main, and footer 
+       into a vertical column. 
+    2. Put an em of space between them 
+       vertically.
+    3. Put an em of space above the header, 
+       below the footer, and to the left and 
+       right of all three elements.  
+    🤔 Have you learned any good techniques 
+       for creating empty rows/columns in a grid?
+    ⚠️ You do NOT need to use the 'margin' 
+       property to complete this challenge.
+    🛟 hint.md for help!
+ */
 
 body {
-  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1em 1fr 1em;
+  grid-template-areas:
+    " .... .... ...."
+    " .... head ...."
+    " .... main ...."
+    " .... foot ...."
+    " .... .... ....";
+  gap: 1em 0;
 }
 
+.site-header {
+  grid-area: head;
+}
+
+footer {
+  grid-area: foot;
+}
 /* =================
-    Layout
+    Main Element Layout 
    ================= */
 
-/*
-Challenge 1:
-    1. Assign each card a grid-area name.
-*/
-
-.technology {
-  grid-area: tech;
-}
-
-.environment {
-  grid-area: envir;
-}
-
-.nasa {
-  grid-area: nasa;
-}
-
-.physics {
-  grid-area: phys;
-}
-
-.health {
-  grid-area: health;
-}
-/*
-Challenge 2:
-    1. Use grid-template-areas to define 
-       the layout at each size.
-       (Keep the existing column templates.) 
-*/
-
 main {
+  grid-area: main;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
@@ -79,6 +82,26 @@ Challenge:
       "tech tech tech tech tech tech envir envir envir nasa nasa nasa"
       "phys phys phys health health health health health health nasa nasa nasa";
   }
+}
+
+.technology {
+  grid-area: tech;
+}
+
+.environment {
+  grid-area: envir;
+}
+
+.nasa {
+  grid-area: nasa;
+}
+
+.physics {
+  grid-area: phys;
+}
+
+.health {
+  grid-area: health;
 }
 
 /* =================
